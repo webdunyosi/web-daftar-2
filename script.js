@@ -78,14 +78,25 @@ const inputFields = {
 
 // Raqamlarni formatlash
 function formatNumber(input) {
-  // Faqat raqamlarni qoldirish
-  let value = input.value.replace(/\D/g, "")
+  // Faqat raqamlar va bitta nuqtani qoldirish
+  let value = input.value.replace(/[^\d.]/g, "")
 
-  // Har 3 ta raqamdan keyin nuqta qo'yish
-  value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+  // Faqat bitta nuqta bo'lishini ta'minlash
+  const parts = value.split(".")
+  if (parts.length > 2) {
+    value = parts[0] + "." + parts.slice(1).join("")
+  }
 
-  // Input qiymatini yangilash
-  input.value = value
+  // Raqamlarni mingliklarga ajratish (nuqta qoldirilib, vergul qo'shiladi)
+  // Oldingi vergullarni olib tashlash va raqamga aylantirish
+  const num = parseFloat(value.replace(/,/g, ""))
+
+  if (!isNaN(num)) {
+    // toLocaleString() orqali formatlash
+    input.value = num.toLocaleString("en-US")
+  } else {
+    input.value = value // Agar raqam bo'lmasa, kiritilgan qiymatni qoldiramiz
+  }
 }
 
 // Mahsulot tanlash uchun maxsus funksiya
@@ -234,7 +245,7 @@ qarzForm.addEventListener("submit", async function (e) {
       mijozIsmi: inputFields.mijozIsmi.value,
       telefon: inputFields.telefon.value,
       mahsulot: inputFields.mahsulot.value,
-      qarzMiqdori: parseFloat(inputFields.qarzMiqdori.value),
+      qarzMiqdori: parseFloat(inputFields.qarzMiqdori.value.replace(/,/g, "")),
       sana: inputFields.sana.value,
       tolashMuddati: inputFields.tolashMuddati.value,
       status: "To'lanmagan",
@@ -251,8 +262,8 @@ qarzForm.addEventListener("submit", async function (e) {
         yangiMalumot.mijozIsmi
       }\n📞 Telefon: ${yangiMalumot.telefon}\n👕 Mahsulot: ${
         yangiMalumot.mahsulot
-      }\n💰 Qarz miqdori: ${yangiMalumot.qarzMiqdori.toFixed(
-        3
+      }\n💰 Qarz miqdori: ${yangiMalumot.qarzMiqdori.toLocaleString(
+        "en-US"
       )} so'm\n📅 Sana: ${yangiMalumot.sana}\n⏰ To'lash muddati: ${
         yangiMalumot.tolashMuddati
       }`
@@ -267,8 +278,8 @@ qarzForm.addEventListener("submit", async function (e) {
         yangiMalumot.mijozIsmi
       }\n📞 Telefon: ${yangiMalumot.telefon}\n👕 Mahsulot: ${
         yangiMalumot.mahsulot
-      }\n💰 Qarz miqdori: ${yangiMalumot.qarzMiqdori.toFixed(
-        3
+      }\n💰 Qarz miqdori: ${yangiMalumot.qarzMiqdori.toLocaleString(
+        "en-US"
       )} so'm\n📅 Sana: ${yangiMalumot.sana}\n⏰ To'lash muddati: ${
         yangiMalumot.tolashMuddati
       }`
@@ -394,8 +405,8 @@ async function qarzlarniKorsatish(searchTerm = "", filterType = "all") {
         </td>
         <td class="px-6 py-4 whitespace-nowrap">
           <div class="text-sm text-gray-900">
-            <i class="fas fa-money-bill-alt text-gray-400 mr-2"></i>${qarz.qarzMiqdori.toFixed(
-              3
+            <i class="fas fa-money-bill-alt text-gray-400 mr-2"></i>${qarz.qarzMiqdori.toLocaleString(
+              "en-US"
             )} so'm
           </div>
         </td>
@@ -470,7 +481,9 @@ async function qarzniTolash(id) {
       qarz.mijozIsmi
     }\n📞 Telefon: ${qarz.telefon}\n👕 Mahsulot: ${
       qarz.mahsulot
-    }\n💰 Qarz miqdori: ${qarz.qarzMiqdori.toLocaleString()} so'm\n📅 Sana: ${new Date(
+    }\n💰 Qarz miqdori: ${qarz.qarzMiqdori.toLocaleString(
+      "en-US"
+    )} so'm\n📅 Sana: ${new Date(
       qarz.sana
     ).toLocaleDateString()}\n⏰ To'lash muddati: ${new Date(
       qarz.tolashMuddati
@@ -498,7 +511,9 @@ async function qarzniOchirish(id) {
         qarz.mijozIsmi
       }\n📞 Telefon: ${qarz.telefon}\n👕 Mahsulot: ${
         qarz.mahsulot
-      }\n💰 Qarz miqdori: ${qarz.qarzMiqdori.toLocaleString()} so'm\n📅 Sana: ${new Date(
+      }\n💰 Qarz miqdori: ${qarz.qarzMiqdori.toLocaleString(
+        "en-US"
+      )} so'm\n📅 Sana: ${new Date(
         qarz.sana
       ).toLocaleDateString()}\n⏰ To'lash muddati: ${new Date(
         qarz.tolashMuddati
