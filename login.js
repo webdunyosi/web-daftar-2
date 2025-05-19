@@ -1,7 +1,7 @@
 // Foydalanuvchi ma'lumotlari
 const users = [
-  { username: 'admin', password: 'Admin123!', role: 'admin' },
-  { username: 'user', password: 'user123', role: 'user' }
+  { username: 'shaxlo', password: 'Shaxlo123!', role: 'admin' },
+  { username: 'jamshid', password: 'Jamshid123!', role: 'user' }
 ];
 
 document.addEventListener('DOMContentLoaded', function () {

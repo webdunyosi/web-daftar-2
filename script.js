@@ -9,8 +9,8 @@ function checkAuth() {
 }
 
 // Telegram bot konfiguratsiyasi
-const TELEGRAM_BOT_TOKEN = "7972518235:AAEIhLp-LVENoe5DCweerO8l-9oK5KFZyRw"
-const TELEGRAM_CHAT_ID = "-1002294610813"
+const TELEGRAM_BOT_TOKEN = "7973067254:AAGUaIObn8dz9FZiS2DL3J-VM9TcKgtQWHM"
+const TELEGRAM_CHAT_ID = "-1002690524474"
 
 // Telegram orqali xabar yuborish
 async function sendTelegramMessage(message) {
