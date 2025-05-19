@@ -249,13 +249,13 @@ qarzForm.addEventListener("submit", async function (e) {
       // Telegram xabari
       const message = `🔄 <b>Qarz yangilandi</b>\n\n👤 Mijoz: ${
         yangiMalumot.mijozIsmi
-      }\n📱 Telefon: ${yangiMalumot.telefon}\n👕 Mahsulot: ${
+      }\n📞 Telefon: ${yangiMalumot.telefon}\n👕 Mahsulot: ${
         yangiMalumot.mahsulot
-      }\n💰 Qarz miqdori: ${yangiMalumot.qarzMiqdori.toLocaleString()} so'm\n📅 Sana: ${new Date(
-        yangiMalumot.sana
-      ).toLocaleDateString()}\n⏰ To'lash muddati: ${new Date(
+      }\n💰 Qarz miqdori: ${yangiMalumot.qarzMiqdori.toFixed(
+        3
+      )} so'm\n📅 Sana: ${yangiMalumot.sana}\n⏰ To'lash muddati: ${
         yangiMalumot.tolashMuddati
-      ).toLocaleDateString()}`
+      }`
       sendTelegramMessage(message)
     } else {
       // Yangi qarz qo'shish
@@ -263,15 +263,15 @@ qarzForm.addEventListener("submit", async function (e) {
       alert("Yangi qarz muvaffaqiyatli qo'shildi!")
 
       // Telegram xabari
-      const message = `➕ <b>Yangi qarz qo'shildi</b>\n\n👤 Mijoz: ${
+      const message = `✅ <b>Yangi qarz qo'shildi</b>\n\n👤 Mijoz: ${
         yangiMalumot.mijozIsmi
-      }\n📱 Telefon: ${yangiMalumot.telefon}\n👕 Mahsulot: ${
+      }\n📞 Telefon: ${yangiMalumot.telefon}\n👕 Mahsulot: ${
         yangiMalumot.mahsulot
-      }\n💰 Qarz miqdori: ${yangiMalumot.qarzMiqdori.toLocaleString()} so'm\n📅 Sana: ${new Date(
-        yangiMalumot.sana
-      ).toLocaleDateString()}\n⏰ To'lash muddati: ${new Date(
+      }\n💰 Qarz miqdori: ${yangiMalumot.qarzMiqdori.toFixed(
+        3
+      )} so'm\n📅 Sana: ${yangiMalumot.sana}\n⏰ To'lash muddati: ${
         yangiMalumot.tolashMuddati
-      ).toLocaleDateString()}`
+      }`
       sendTelegramMessage(message)
     }
 
@@ -394,7 +394,9 @@ async function qarzlarniKorsatish(searchTerm = "", filterType = "all") {
         </td>
         <td class="px-6 py-4 whitespace-nowrap">
           <div class="text-sm text-gray-900">
-            <i class="fas fa-money-bill-alt text-gray-400 mr-2"></i>${qarz.qarzMiqdori.toLocaleString()} so'm
+            <i class="fas fa-money-bill-alt text-gray-400 mr-2"></i>${qarz.qarzMiqdori.toFixed(
+              3
+            )} so'm
           </div>
         </td>
         <td class="px-6 py-4 whitespace-nowrap">
@@ -466,7 +468,7 @@ async function qarzniTolash(id) {
     const qarz = doc.data()
     const message = `✅ <b>Qarz to'landi</b>\n\n👤 Mijoz: ${
       qarz.mijozIsmi
-    }\n📱 Telefon: ${qarz.telefon}\n👕 Mahsulot: ${
+    }\n📞 Telefon: ${qarz.telefon}\n👕 Mahsulot: ${
       qarz.mahsulot
     }\n💰 Qarz miqdori: ${qarz.qarzMiqdori.toLocaleString()} so'm\n📅 Sana: ${new Date(
       qarz.sana
@@ -494,7 +496,7 @@ async function qarzniOchirish(id) {
       // Telegram xabari
       const message = `❌ <b>Qarz o'chirildi</b>\n\n👤 Mijoz: ${
         qarz.mijozIsmi
-      }\n📱 Telefon: ${qarz.telefon}\n👕 Mahsulot: ${
+      }\n📞 Telefon: ${qarz.telefon}\n👕 Mahsulot: ${
         qarz.mahsulot
       }\n💰 Qarz miqdori: ${qarz.qarzMiqdori.toLocaleString()} so'm\n📅 Sana: ${new Date(
         qarz.sana
@@ -591,29 +593,18 @@ async function exportToExcel() {
   XLSX.writeFile(wb, fileName)
 }
 
-// Import the functions you need from the SDKs you need
-// import { initializeApp } from "firebase/app";
-// import { getAnalytics } from "firebase/analytics";
-// import { getFirestore } from "firebase/firestore";
-
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Firebase konfiguratsiyasi
 const firebaseConfig = {
-  apiKey: "AIzaSyAMZhBtC_p85-o6HknNpgCccymPitFzr10",
-  authDomain: "qarz-daftar-5c5d8.firebaseapp.com",
-  projectId: "qarz-daftar-5c5d8",
-  storageBucket: "qarz-daftar-5c5d8.firebasestorage.app",
-  messagingSenderId: "428743808384",
-  appId: "1:428743808384:web:ab48528757928006b7dd65",
-  measurementId: "G-6DLRG81SY8",
+  apiKey: "AIzaSyCdxIPu4uW8olRftrBTbP6S9ZX0g9Pkq7I",
+  authDomain: "qarz-daftar-b6430.firebaseapp.com",
+  projectId: "qarz-daftar-b6430",
+  storageBucket: "qarz-daftar-b6430.firebasestorage.app",
+  messagingSenderId: "770124951619",
+  appId: "1:770124951619:web:797b50a3de864564da24f6",
+  measurementId: "G-94QXFQ24PJ",
 }
 
-// Initialize Firebase (compat version)
-// const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
+// Firebase-ni ishga tushirish
 firebase.initializeApp(firebaseConfig)
 const db = firebase.firestore()
 
@@ -633,8 +624,18 @@ async function addDebt(debt) {
       ...debt,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
     })
+    // Telegram xabari
+    const message = `✅ <b>Yangi qarz qo'shildi</b>\n\n👤 Mijoz: ${
+      debt.mijozIsmi
+    }\n📞 Telefon: ${debt.telefon}\n👕 Mahsulot: ${
+      debt.mahsulot
+    }\n💰 Qarz miqdori: ${debt.qarzMiqdori.toFixed(3)} so'm\n📅 Sana: ${
+      debt.sana
+    }\n⏰ To'lash muddati: ${debt.tolashMuddati}`
+    sendTelegramMessage(message)
   } catch (error) {
-    console.error("Xatolik yuz berdi: ", error)
+    console.error("Qarz qo'shishda xatolik:", error)
+    alert("Qarz qo'shishda xatolik yuz berdi.")
   }
 }
 
