@@ -1,6 +1,6 @@
 // Foydalanuvchi ma'lumotlari
 const users = [
-  { username: 'shaxlo', password: 'Shaxlo123!', role: 'admin' },
+  { username: 'marjona', password: 'Marjona123!', role: 'admin' },
   { username: 'jamshid', password: 'Jamshid123!', role: 'user' }
 ];
 
