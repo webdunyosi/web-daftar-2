@@ -92,65 +92,60 @@
 
         <!-- Yangi qarz qo'shish formasi -->
         <div
-          class="bg-white/80 backdrop-blur-md p-6 rounded-lg shadow-lg mb-8 animate-slide-up"
+          class="mx-auto my-5 md:my-8 bg-white/80 backdrop-blur-md p-4 md:p-6 rounded-lg shadow-2xl animate-slide-up"
         >
-          <div class="flex items-center mb-6">
-            <i class="fas fa-plus-circle text-2xl text-blue-500 mr-3"></i>
-            <h2 class="text-xl font-semibold">Yangi Qarz Qo'shish</h2>
+          <div
+            class="flex justify-center md:justify-start items-center mb-2 md:mb-6 mt-0 md:mt-2"
+          >
+            <i
+              class="fas fa-plus-circle text-2xl md:text-3xl text-blue-500 mr-1 md:mr-3"
+            ></i>
+            <h2 class="text-xl md:text-2xl font-bold text-gray-800">
+              Yangi Qarz Qo'shish
+            </h2>
           </div>
-          <form id="qarzForm" class="space-y-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-4">
+          <form id="qarzForm" class="space-y-2 md:space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-6">
+              <!-- Mijoz ismi -->
               <div class="form-group relative">
                 <input
                   class="w-full p-2 rounded-full px-4 pl-10 bg-white/90 focus:bg-white transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   type="text"
                   id="mijozIsmi"
-                  required
                   placeholder="Mijoz ismini kiriting"
+                  required
                 />
                 <i
                   class="fas fa-user absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"
                 ></i>
               </div>
+              <!-- Telefon raqami -->
               <div class="form-group relative">
                 <input
                   class="w-full p-2 rounded-full px-4 pl-10 bg-white/90 focus:bg-white transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   type="tel"
                   id="telefon"
-                  required
                   placeholder="Telefon raqamini kiriting"
+                  required
                 />
                 <i
                   class="fas fa-phone absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"
                 ></i>
               </div>
+              <!-- Mahsulot nomi -->
               <div class="form-group relative">
-                <select
-                  class="w-full p-2 rounded-full px-4 pl-10 bg-white/90 focus:bg-white transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none"
+                <input
+                  class="w-full p-2 rounded-full px-4 pl-10 bg-white/90 focus:bg-white transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  type="text"
                   id="mahsulot"
+                  placeholder="Mahsulot nomini kiriting (Mahsulot 1, Mahsulot 2)"
                   required
-                >
-                  <option value="">Mahsulotni tanlang</option>
-                  <option value="Futbolka">Futbolka</option>
-                  <option value="Shim">Shim</option>
-                  <option value="Krossovka">Krossovka</option>
-                  <option value="Kepka">Kepka</option>
-                  <option value="Kurtka">Kurtka</option>
-                  <option value="Sviter">Sviter</option>
-                  <option value="Jinsi">Jinsi</option>
-                  <option value="Tufli">Tufli</option>
-                  <option value="Ko'ylak">Ko'ylak</option>
-                  <option value="Yengil kiyim">Yengil kiyim</option>
-                  <option value="Sport kiyim">Sport kiyim</option>
-                  <option value="Boshqa">Boshqa</option>
-                </select>
+                />
                 <i
                   class="fas fa-tshirt absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"
                 ></i>
-                <i
-                  class="fas fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none"
-                ></i>
               </div>
+              <!-- Qarz miqdori -->
               <div class="form-group relative">
                 <input
                   class="w-full p-2 rounded-full px-4 pl-10 bg-white/90 focus:bg-white transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
@@ -164,6 +159,7 @@
                   class="fas fa-money-bill-alt absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"
                 ></i>
               </div>
+              <!-- Sana -->
               <div class="form-group relative">
                 <input
                   class="w-full p-2 rounded-full px-4 pl-10 bg-white/90 focus:bg-white transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
@@ -175,6 +171,7 @@
                   class="fas fa-calendar absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"
                 ></i>
               </div>
+              <!-- To'lash muddati -->
               <div class="form-group relative">
                 <input
                   class="w-full p-2 rounded-full px-4 pl-10 bg-white/90 focus:bg-white transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
@@ -187,11 +184,13 @@
                 ></i>
               </div>
             </div>
-            <button
-              type="submit"
-              class="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition-colors flex items-center justify-center"
-            >
-              <i class="fas fa-save mr-2"></i>Qarzni saqlash
+            <button type="submit" class="submit-button group">
+              <span class="flex items-center justify-center">
+                <i
+                  class="fas fa-save mr-2 group-hover:translate-x-1 transition-transform"
+                ></i>
+                Qarzni saqlash
+              </span>
             </button>
           </form>
         </div>
