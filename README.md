@@ -4,7 +4,7 @@ Web daftar for firebase
 - Html5
 - Tailwindcss
 - JavaScript
-- Can you view my [project](https://web-daftar-2-9bse.vercel.app/login.html)
+- Can you view my [project](https://qarzdaftar-temur.vercel.app/)
 
 # Author 
 (2025) Toshpo'latov Alimardon
